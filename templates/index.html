@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>SekerHastaligiTahmin</title>
+</head>
+
+<body>
+ <div class="login">
+	<h1 style="color: rgb(53, 15, 187); font-weight: bold;">ŞEKER HASTALIĞI TAHMİN UYGULAMASI</h1>
+    <hr>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<h3 style="color: rgb(53, 15, 187);">Hamilelik Sayısı</h3>
+            <input type="text" name="HamilelikDurumu" placeholder="Hamilelik sayısı giriniz.." required="required" /><br>
+
+            <br><br>
+            <h3 style="color: rgb(53, 15, 187);">Glikoz</h3>
+            <input type="text" name="Glikoz" placeholder="Glikoz miktarı giriniz.." required="required" /><br>
+        
+            <br><br>
+            <h3 style="color: rgb(53, 15, 187);">Kan Basıncı</h3>
+            <input type="text" name="KanBasinci" placeholder="Kan basinci bilgisi giriniz.." required="required" /><br>
+       
+            <br><br>
+            <h3 style="color: rgb(53, 15, 187);">Cilt Kalınlığı</h3>
+            <input type="text" name="CiltKalinligi" placeholder="Cilt kalınlığı bilgisi giriniz.." required="required" /><br>
+
+            <br><br>
+            <h3 style="color: rgb(53, 15, 187);">Vücut Kitle İndeksi</h3>
+            <input type="text" name="VKIndeksi" placeholder="Vücut kitle indeksi giriniz.." required="required" /><br>
+     
+            <br><br>
+            <h3 style="color: rgb(53, 15, 187);">Aile Hastalık Oranı</h3>
+            <input type="text" name="SoyAgaciIslevi" placeholder="Ailedeki şeker hastalığı oranını (%) giriniz.." required="required" /><br>
+            
+            <br><br>
+            <h3 style="color: rgb(53, 15, 187);">Yas</h3>
+            <input type="text" name="Yas" placeholder="Yaş giriniz.." required="required" /><br>
+
+            <br><br>
+            <h3 style="color: rgb(53, 15, 187);">İnsulin</h3>
+            <input type="text" name="Insulin" placeholder="İnsulin miktarını giriniz.." required="required" /><br>
+            <br> <br>
+            <button type = "submit" class = "btn btn-secondary btn-lg">TAHMİN ET</button>
+
+            <br> <br> 
+            
+    </form>
+    <hr>
+    <h2 style="color: rgb(53, 15, 187); font-weight: bold;"> TAHMİN SONUCU  </h2>  
+    {{ prediction_text }} 
+   <br>
+   <br>
+   <hr>
+
+ </div>
+
+ <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
